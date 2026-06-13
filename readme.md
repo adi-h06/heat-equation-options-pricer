@@ -1,26 +1,18 @@
 # Options Pricing with Heat Equation
 ## Introduction
 
-The basis of this project is to provide accurate prices for call and put options using numerical methods. 
+This project numerically prices European options and computes implied volatility.
 
-We start with the knowledge that the Black-Scholes equation and the heat equation are mathematically equivalent partial differential equations. 
+The Black-Scholes PDE is transformed into the heat equation through a change of variables and solved using the finite difference method. Option prices are verified against the closed-form Black-Scholes solution. Implied volatility is computed by inverting Black-Scholes using Newton's method.
 
-The Black-Scholes equation is transformed into the heat equation through a change of variables and is then solved using the finite difference method. This solution is transformed back to obtain option prices. 
-
-Results are then compared with the closed form solution.
-
+For the full mathematical derivation see [math.pdf](math.pdf)
 ## Results
+Volatility is drawn randomly from U(0.1, 0.5) each run. Using S=$105, K=$110, T=0.5 years, r=5%, σ=37.61%:
 
-When using the following parameters:
-Stock Price:    $105.0
-Strike Price:   $110.0
-Time to Expiry: 0.5 year
-Interest Rate:  5.0%
-Volatility:     25.0%
-
-The percentage error for call option was 0.5635%, while the percentage error for the put option was 0.2532% 
-
-We computed a put call parity error of $0.058 
+- Call price error: 0.54%
+- Put price error: 0.26%
+- Put-call parity error: $0.09
+- Implied volatility recovered in 3 iterations with 0.49% error
 
 ![Price vs Stock Price](results/plots/price_vs_stock.png)
 ![Error vs Stock Price](results/plots/error_vs_stock.png)
