@@ -37,7 +37,7 @@ Numerical method assumptions:
 
 ## How to Run
 
-git clone [repo url]
+git clone https://github.com/adi-h06/heat-equation-options-pricer.git
 pip install numpy scipy matplotlib
 python main.py
 
