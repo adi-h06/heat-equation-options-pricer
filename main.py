@@ -8,13 +8,12 @@ from options_pricer import price_european_call, verify_call_against_analytical, 
 from black_scholes import implied_volatility
 
 def main():
-    # Option parameters
     S = 105.0
     K = 110.0
     T = 0.5
     r = 0.05
     sigma = np.random.uniform(0.1, 0.5)
-    
+
     print('=' * 50)
     print('European Call Option Pricing')
     print('=' * 50)
@@ -24,13 +23,13 @@ def main():
     print(f'Interest Rate:  {r*100}%')
     print(f'Volatility:     {sigma*100:.2f}%')
     print('=' * 50)
-    
+
     print('\nCall Option:')
     verify_call_against_analytical(S, K, T, r, sigma)
-    
+
     print('\nPut Option:')
     verify_put_against_analytical(S, K, T, r, sigma)
-    
+
     print('\nPut-Call Parity Check:')
     verify_pcp(S, K, T, r, sigma)
 
@@ -44,7 +43,6 @@ def main():
 
     plot_price_vs_stock(K, T, r, sigma, S_min=70, S_max=150)
     plot_error_vs_stock(K, T, r, sigma, S_min=70, S_max=150)
-    
 
 if __name__ == '__main__':
     main()
